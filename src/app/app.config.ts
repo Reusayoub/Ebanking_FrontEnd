@@ -1,8 +1,33 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
 
-import { routes } from './app.routes';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
-};
+import { AppRoutingModule } from './app.routes';
+import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CustomersComponent } from './customers/customers.component';
+import { AccountsComponent } from './accounts/accounts.component';
+import {HttpClientModule} from "@angular/common/http";
+import {ReactiveFormsModule} from "@angular/forms";
+import { NewCustomerComponent } from './new-customer/new-customer.component';
+import { CustomerAccountsComponent } from './customer-accounts/customer-accounts.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    CustomersComponent,
+    AccountsComponent,
+    NewCustomerComponent,
+    CustomerAccountsComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
